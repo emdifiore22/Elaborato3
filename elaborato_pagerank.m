@@ -46,4 +46,5 @@ hdt.UpdateFcn = @(obj, event_obj) GraphCursorCallback(obj, event_obj, g_media.No
 
 % Aggiunta titolo al grafico.
 title('Sottografo dei nodi con rank maggiore della media dei rank.');
+
 %%%% Fine plot del sottografo %%%%%
