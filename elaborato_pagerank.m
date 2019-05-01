@@ -20,3 +20,8 @@ T = table(U, in, out', R);
 T_ord = sortrows(T, 'R', 'descend');
 T_new = head(T_ord,15);
 disp(T_new)
+
+%Media dei rank e plot del sottografo
+M = mean(R);
+gm = subgraph(gs, R > M);
+plot(gm);
