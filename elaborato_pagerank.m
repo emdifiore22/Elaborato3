@@ -1,6 +1,6 @@
 % La matrice di adiacenza deve essere chiamata G, il cell array degli URL deve essere chiamato U.
 
-load( input('Inserire struttura dati: ','s'));
+load(input('Inserire struttura dati: ','s'));
 
 [R, outdegree, indegree] = pagerank(G);
 
@@ -27,12 +27,13 @@ T = head(T,15);
 disp(T);
 
 %%%% Plot del sottografo %%%%%
+
 M = mean(R); % Calcolo media.
 rank_sorted = sort(R(R>M)); % Vettore dei rank ordinati.
 g_media = subgraph(gs, R>M); % Sottografo dei nodi con rank maggiori della media.
 
 
-% Plot del sottografo
+% Plot effettivo del sottografo
 figure(4);
 p = plot(g_media, 'NodeLabel',{},'MarkerSize',rank_sorted*500, 'NodeCData', rank_sorted, 'EdgeColor',[.7 .7 .7]);
 colormap jet; % Impostazione colormap per bar laterale.
@@ -45,6 +46,6 @@ hdt = datacursormode;
 hdt.UpdateFcn = @(obj, event_obj) GraphCursorCallback(obj, event_obj, g_media.Nodes); % Visualizzazione Label
 
 % Aggiunta titolo al grafico.
-title('Sottografo dei nodi con rank maggiore della media dei rank.');
+title(['Sottografo dei nodi con rank maggiore della media dei rank ' num2str(M,16) '. ']);
 
 %%%% Fine plot del sottografo %%%%%
