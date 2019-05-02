@@ -10,7 +10,7 @@ spy(G);
 title('Grafico che visualizza la struttura di G.');
 
 figure(2);
-gs = digraph(G');
+gs = digraph(G', 'omitselfloops');
 p = plot(gs);
 layout(p,'force');
 title('Grafo associato a G.');
