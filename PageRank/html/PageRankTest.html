@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2018b"><title>Test funzione pagerank.mlx</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.7999992370605px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S1 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: bold; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: bold; text-align: left;  }
+.S3 { margin: 10px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 15px; font-weight: bold; text-align: left;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S7 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234001159668px;  }
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {overflow: hidden; padding-left: 9px;}
+.rightPaneElement .matrixElement {margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {cursor: default !important;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .variableElement {padding-top: 2px; padding-left: 9px;}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; width: 30px; height: 12px; background-repeat: no-repeat; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; width: 12px; height: 30px; background-repeat: no-repeat; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S9 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 15px; font-weight: bold; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Test funzione pagerank.mlx</span></h1><h2  class = 'S1'><span>Casi d'uso della funzione </span><span style=' font-style: italic;'>pagerank.mlx</span><span> .</span></h2><h3  class = 'S2'><span>mathwork200.mat</span></h3><h4  class = 'S3'><span>Calcolo del pagerank con la funzione pagerank.</span></h4><div  class = 'S4'><span>Caso d'uso con la matrice presente nel file </span><span style=' font-style: italic;'>mathwork200.mat</span><span>. Utilizziamo la funzione </span><span style=' font-style: italic;'>pagerank.mlx </span><span>che restituisce i rank delle varie pagine e verifichiamo che la somma sia pari a 1 e che tutti gli elementi siano non negativi.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>load </span><span style="color: rgb(160, 32, 240);">mathwork200.mat</span><span>;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>R = pagerank(G)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="EC0272FD" data-scroll-top="null" data-scroll-left="null" data-testid="output_0" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">R = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">200×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:200,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0018
+    0.0055
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">somma</span><span> = sum(R)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>somma = 1.0000</div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">elementi_negativi</span><span> = R(R&lt;0)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="9D841AFC" data-scroll-top="null" data-scroll-left="null" data-testid="output_2" data-width="1550" data-height="45" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="textElement">elementi_negativi =
+
+  0×1 empty double column vector</div></div></div></div></div><h4  class = 'S9'><span>Calcolo accuratezza con il confronto con </span><span style=' font-style: italic;'>centrality</span><span>.</span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>gs = digraph(G',</span><span style="color: rgb(160, 32, 240);">'omitselfloops'</span><span>);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>Pk = centrality(gs,</span><span style="color: rgb(160, 32, 240);">'pagerank'</span><span>,</span><span style="color: rgb(160, 32, 240);">'FollowProbability'</span><span>,0.85, </span><span style="color: rgb(160, 32, 240);">'Tolerance'</span><span>,10^-7)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="AA6188A2" data-scroll-top="null" data-scroll-left="null" data-testid="output_3" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">Pk = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">200×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:200,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0018
+    0.0055
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+    0.0048
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">err_rel</span><span> = norm(R - Pk)/norm(Pk)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>err_rel = 2.2551e-06</div></div></div></div><h3  class = 'S2'><span>repubblica.mat</span></h3><h4  class = 'S3'><span>Calcolo del pagerank con la funzione pagerank.</span></h4><div  class = 'S4'><span>Caso d'uso con la matrice presente nel file </span><span style=' font-style: italic;'>repubblica.mat</span><span>. Utilizziamo la funzione </span><span style=' font-style: italic;'>pagerank.mlx </span><span>che restituisce i rank delle varie pagine e verifichiamo che la somma sia pari a 1 e che tutti gli elementi siano non negativi.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>load </span><span style="color: rgb(160, 32, 240);">repubblica.mat</span><span>;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>R = pagerank(G)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="A2DFE0D4" data-scroll-top="null" data-scroll-left="null" data-testid="output_5" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">R = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">100×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:100,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0037
+    0.0103
+    0.0112
+    0.0137
+    0.0113
+    0.0118
+    0.0226
+    0.0118
+    0.0118
+    0.0932
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">somma</span><span> = sum(R)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>somma = 1.0000</div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">elementi_negativi</span><span> = R(R&lt;0)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="BA171EF7" data-scroll-top="null" data-scroll-left="null" data-testid="output_7" data-width="1550" data-height="45" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="textElement">elementi_negativi =
+
+  0×1 empty double column vector</div></div></div></div></div><h4  class = 'S9'><span>Calcolo accuratezza con il confronto con </span><span style=' font-style: italic;'>centrality</span><span>.</span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>gs = digraph(G',</span><span style="color: rgb(160, 32, 240);">'omitselfloops'</span><span>);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>Pk = centrality(gs,</span><span style="color: rgb(160, 32, 240);">'pagerank'</span><span>,</span><span style="color: rgb(160, 32, 240);">'FollowProbability'</span><span>,0.85, </span><span style="color: rgb(160, 32, 240);">'Tolerance'</span><span>,10^-7)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="BAC7AB90" data-scroll-top="null" data-scroll-left="null" data-testid="output_8" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">Pk = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">100×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:100,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0037
+    0.0103
+    0.0112
+    0.0137
+    0.0113
+    0.0118
+    0.0226
+    0.0118
+    0.0118
+    0.0932
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">err_rel</span><span> = norm(R - Pk)/norm(Pk)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>err_rel = 1.3285e-07</div></div></div></div><h3  class = 'S2'><span>ilsole24.mat - Generato attraverso surfer.m</span></h3><h4  class = 'S3'><span>Calcolo del pagerank con la funzione pagerank.</span></h4><div  class = 'S4'><span>Caso d'uso con la matrice presente nel file </span><span style=' font-style: italic;'>ilsole24.mat</span><span>. Utilizziamo la funzione </span><span style=' font-style: italic;'>pagerank.mlx </span><span>che restituisce i rank delle varie pagine e verifichiamo che la somma sia pari a 1 e che tutti gli elementi siano non negativi.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>load </span><span style="color: rgb(160, 32, 240);">ilsole24.mat</span><span>;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>R = pagerank(G)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="A604A9DF" data-scroll-top="null" data-scroll-left="null" data-testid="output_10" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">R = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">50×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:50,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0175
+    0.0550
+    0.0383
+    0.0216
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">somma</span><span> = sum(R)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>somma = 1.0000</div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">elementi_negativi</span><span> = R(R&lt;0)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="20B39B06" data-scroll-top="null" data-scroll-left="null" data-testid="output_12" data-width="1550" data-height="45" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="textElement">elementi_negativi =
+
+  0×1 empty double column vector</div></div></div></div></div><h4  class = 'S9'><span>Calcolo accuratezza con il confronto con </span><span style=' font-style: italic;'>centrality</span><span>.</span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>gs = digraph(G',</span><span style="color: rgb(160, 32, 240);">'omitselfloops'</span><span>);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>Pk = centrality(gs,</span><span style="color: rgb(160, 32, 240);">'pagerank'</span><span>,</span><span style="color: rgb(160, 32, 240);">'FollowProbability'</span><span>,0.85, </span><span style="color: rgb(160, 32, 240);">'Tolerance'</span><span>,10^-7)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="9BCD69B6" data-scroll-top="null" data-scroll-left="null" data-testid="output_13" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">Pk = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">50×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:50,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0175
+    0.0550
+    0.0383
+    0.0216
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+    0.0178
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span class="warning_squiggle_rte">err_rel</span><span> = norm(R - Pk)/norm(Pk)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>err_rel = 3.6514e-07</div></div></div></div><h3  class = 'S2'><span>galeazzi.mat - Generato attraverso surfer.m</span></h3><h4  class = 'S3'><span>Calcolo del pagerank con la funzione pagerank.</span></h4><div  class = 'S4'><span>Caso d'uso con la matrice presente nel file </span><span style=' font-style: italic;'>galeazzi.mat</span><span>. Utilizziamo la funzione </span><span style=' font-style: italic;'>pagerank.mlx </span><span>che restituisce i rank delle varie pagine e verifichiamo che la somma sia pari a 1 e che tutti gli elementi siano non negativi.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>load </span><span style="color: rgb(160, 32, 240);">galeazzi.mat</span><span>;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>R = pagerank(G)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="0969B162" data-scroll-top="null" data-scroll-left="null" data-testid="output_15" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">R = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">100×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:100,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0058
+    0.0145
+    0.0231
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0096
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span>somma = sum(R)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>somma = 1.0000</div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span>elementi_negativi = R(R&lt;0)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="39CE10D8" data-scroll-top="null" data-scroll-left="null" data-testid="output_17" data-width="1550" data-height="45" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="textElement">elementi_negativi =
+
+  0×1 empty double column vector</div></div></div></div></div><h4  class = 'S9'><span>Calcolo accuratezza con il confronto con </span><span style=' font-style: italic;'>centrality</span><span>.</span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>gs = digraph(G',</span><span style="color: rgb(160, 32, 240);">'omitselfloops'</span><span>);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>Pk = centrality(gs,</span><span style="color: rgb(160, 32, 240);">'pagerank'</span><span>,</span><span style="color: rgb(160, 32, 240);">'FollowProbability'</span><span>,0.85, </span><span style="color: rgb(160, 32, 240);">'Tolerance'</span><span>,10^-7)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="9F24E8B7" data-scroll-top="null" data-scroll-left="null" data-testid="output_18" data-width="1550" style="width: 1580px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1550px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">Pk = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">100×1</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:73,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:100,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 75px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0058
+    0.0145
+    0.0231
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0064
+    0.0096
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span>err_rel = norm(R - Pk)/norm(Pk)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; '>err_rel = 6.2836e-07</div></div></div></div><h3  class = 'S2'><span>Casi di errore della funzione </span><span style=' font-style: italic;'>pagerank.mlx</span><span> .</span></h3><div  class = 'S4'><span>Caso in cui la matrice in ingresso è vuota:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = [];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span class="warning_squiggle_rte">R</span><span> = pagerank(G);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="A90F4795" data-scroll-top="null" data-scroll-left="null" data-testid="output_20" data-width="1550" data-height="30" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error using pagerank (line 8)<br>La matrice di input è vuota.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><div  class = 'S4'><span>Caso in cui la matrice in ingresso non è sparsa:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = [1 2 4; 1 5 6; 4 5 6];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span class="warning_squiggle_rte">R</span><span> = pagerank(G);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="7201BAD5" data-scroll-top="null" data-scroll-left="null" data-testid="output_21" data-width="1550" data-height="30" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error using pagerank (line 12)<br>La matrice di input non è sparsa.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><div  class = 'S4'><span>Caso in cui la matrice non è di tipo sparse logic:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = sparse([1 0 0; 0 1 0; 0 0 1]);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span class="warning_squiggle_rte">R</span><span> = pagerank(G);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="9EFE804F" data-scroll-top="null" data-scroll-left="null" data-testid="output_22" data-width="1550" data-height="30" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error using pagerank (line 16)<br>La matrice di input non contiene solo elementi logici.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><div  class = 'S4'><span>Caso in cui la matrice in ingresso non è quadrata:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = sparse(logical([1 0 0; 0 1 0]));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span class="warning_squiggle_rte">R</span><span> = pagerank(G);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="C614AF80" data-scroll-top="null" data-scroll-left="null" data-testid="output_23" data-width="1550" data-height="30" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error using pagerank (line 22)<br>La matrice di input non è quadrata.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><div  class = 'S4'><span>Caso in cui l'ingresso è un elemento logico:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = sparse(</span><span class="warning_squiggle_rte warningHighlight">logical</span><span>(1));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>R = pagerank(G)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="E52C0D9B" data-testid="output_24" data-width="1550" data-height="30" data-hashorizontaloverflow="false" style="width: 1580px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error using pagerank (line 26)<br>Dimensioni della matrice di input non corrette.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><h2  class = 'S1'></h2></div><br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Test funzione pagerank.mlx
+%% Casi d'uso della funzione _pagerank.mlx_ .
+%% mathwork200.mat
+%% Calcolo del pagerank con la funzione pagerank.
+% Caso d'uso con la matrice presente nel file _mathwork200.mat_. Utilizziamo 
+% la funzione _pagerank.mlx _che restituisce i rank delle varie pagine e verifichiamo 
+% che la somma sia pari a 1 e che tutti gli elementi siano non negativi.
+
+load mathwork200.mat;
+R = pagerank(G)
+somma = sum(R)
+elementi_negativi = R(R<0)
+%% Calcolo accuratezza con il confronto con _centrality_.
+%%
+gs = digraph(G','omitselfloops');
+Pk = centrality(gs,'pagerank','FollowProbability',0.85, 'Tolerance',10^-7)
+err_rel = norm(R - Pk)/norm(Pk)
+%% repubblica.mat
+%% Calcolo del pagerank con la funzione pagerank.
+% Caso d'uso con la matrice presente nel file _repubblica.mat_. Utilizziamo 
+% la funzione _pagerank.mlx _che restituisce i rank delle varie pagine e verifichiamo 
+% che la somma sia pari a 1 e che tutti gli elementi siano non negativi.
+
+load repubblica.mat;
+R = pagerank(G)
+somma = sum(R)
+elementi_negativi = R(R<0)
+%% Calcolo accuratezza con il confronto con _centrality_.
+%%
+gs = digraph(G','omitselfloops');
+Pk = centrality(gs,'pagerank','FollowProbability',0.85, 'Tolerance',10^-7)
+err_rel = norm(R - Pk)/norm(Pk)
+%% ilsole24.mat - Generato attraverso surfer.m
+%% Calcolo del pagerank con la funzione pagerank.
+% Caso d'uso con la matrice presente nel file _ilsole24.mat_. Utilizziamo la 
+% funzione _pagerank.mlx _che restituisce i rank delle varie pagine e verifichiamo 
+% che la somma sia pari a 1 e che tutti gli elementi siano non negativi.
+
+load ilsole24.mat;
+R = pagerank(G)
+somma = sum(R)
+elementi_negativi = R(R<0)
+%% Calcolo accuratezza con il confronto con _centrality_.
+%%
+gs = digraph(G','omitselfloops');
+Pk = centrality(gs,'pagerank','FollowProbability',0.85, 'Tolerance',10^-7)
+err_rel = norm(R - Pk)/norm(Pk)
+%% galeazzi.mat - Generato attraverso surfer.m
+%% Calcolo del pagerank con la funzione pagerank.
+% Caso d'uso con la matrice presente nel file _galeazzi.mat_. Utilizziamo la 
+% funzione _pagerank.mlx _che restituisce i rank delle varie pagine e verifichiamo 
+% che la somma sia pari a 1 e che tutti gli elementi siano non negativi.
+
+load galeazzi.mat;
+R = pagerank(G)
+somma = sum(R)
+elementi_negativi = R(R<0)
+%% Calcolo accuratezza con il confronto con _centrality_.
+%%
+gs = digraph(G','omitselfloops');
+Pk = centrality(gs,'pagerank','FollowProbability',0.85, 'Tolerance',10^-7)
+err_rel = norm(R - Pk)/norm(Pk)
+%% Casi di errore della funzione _pagerank.mlx_ .
+% Caso in cui la matrice in ingresso è vuota:
+
+G = [];
+R = pagerank(G);
+%% 
+% Caso in cui la matrice in ingresso non è sparsa:
+
+G = [1 2 4; 1 5 6; 4 5 6];
+R = pagerank(G);
+%% 
+% Caso in cui la matrice non è di tipo sparse logic:
+
+G = sparse([1 0 0; 0 1 0; 0 0 1]);
+R = pagerank(G);
+%% 
+% Caso in cui la matrice in ingresso non è quadrata:
+
+G = sparse(logical([1 0 0; 0 1 0]));
+R = pagerank(G);
+%% 
+% Caso in cui l'ingresso è un elemento logico:
+
+G = sparse(logical(1));
+R = pagerank(G)
+%%
+##### SOURCE END #####
+--></body></html>
