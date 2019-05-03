@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2018b"><title>Calcolo del PageRank data una matrice di adiacenza G.</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.7999992370605px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S2 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: bold; text-align: left;  }
+.S3 { margin: 10px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 15px; font-weight: bold; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Calcolo del PageRank data una matrice di adiacenza G.</span></h1><div  class = 'S1'><span></span></div><div  class = 'S1'><a href = "#H_530CD292"><span>R</span></a><span style=' font-family: monospace;'> = pagerank(</span><a href = "#4B1ACAC5"><span>G</span></a><span style=' font-family: monospace;'>);</span></div><div  class = 'S1'><span style=' font-family: monospace;'>[</span><a href = "#H_530CD292"><span>R</span></a><span style=' font-family: monospace;'>, </span><a href = "#H_3EB459A4"><span>OUT</span></a><span style=' font-family: monospace;'>, </span><a href = "#H_AAC58498"><span>IN</span></a><span style=' font-family: monospace;'>] = pagerank(</span><a href = "#4B1ACAC5"><span>G</span></a><span style=' font-family: monospace;'>);</span></div><div  class = 'S1'><span></span></div><h3  class = 'S2'><span>Argomenti di input</span></h3><div  class = 'S1'><span></span></div><div  class = 'S1' id = '4B1ACAC5' ><span style=' font-weight: bold;'>G - Matrice di adiacenza</span></div><div  class = 'S1'><span style=' font-family: monospace;'>G</span><span> è la matrice sparsa di adiacenze relativa ad un sottoinsieme del web. Deve essere quadrata e di tipo sparse logical. </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Tipo:</span><span style=' font-family: monospace;'> sparse | logical</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><h3  class = 'S2'><span>Argomenti di output</span></h3><div  class = 'S1'><span></span></div><h4  class = 'S3' id = 'H_530CD292' ><span>R - Vettore dei rank delle pagine</span></h4><div  class = 'S1'><span style=' font-family: monospace;'>R</span><span> è il vettore dei page rank associati alle pagine del sottoinsieme del web rappresentato da </span><span style=' font-family: monospace;'>G</span><span>.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Tipo:</span><span style=' font-family: monospace;'> double</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><h4  class = 'S3' id = 'H_3EB459A4' ><span>OUT - Vettore dei corrispondenti </span><span style=' font-style: italic;'>outdegree</span></h4><div  class = 'S1'><span style=' font-family: monospace;'>OUT(i)</span><span> contiene il numero di link uscenti dal nodo</span><span style=' font-family: monospace;'>(i)</span><span>, il cui pagerank è </span><span style=' font-family: monospace;'>R(i)</span><span>.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Tipo:</span><span style=' font-family: monospace;'> double</span></div><div  class = 'S1'><span></span></div><h4  class = 'S3' id = 'H_AAC58498' ><span>IN - Vettore dei corrispondenti </span><span style=' font-style: italic;'>indegree</span></h4><div  class = 'S1'><span style=' font-family: monospace;'>IN(i)</span><span> contiene il numero di link entranti nel nodo</span><span style=' font-family: monospace;'>(i)</span><span>, il cui pagerank è </span><span style=' font-family: monospace;'>R(i)</span><span>.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Tipo:</span><span style=' font-family: monospace;'> double</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><h3  class = 'S2'><span>Algoritmo</span></h3><div  class = 'S1'><span>Utilizzando un metodo iterativo, viene calcolato il vettore R dei PageRank, ovvero dei pesi numerici associati alle pagine del sottoinsieme del web analizzato, con lo scopo di classificarle in base alla loro importanza relativa all'interno dell'insieme. L'idea di base è assegnare un rank ad ogni pagina in base ai rank delle pagine che puntano ad essa. Ogni pagina dunque distribuisce equamente la propria importanza alle pagine puntate.</span></div><h3  class = 'S2'><span>Correlati</span></h3><div  class = 'S1'><a href = "https://www.mathworks.com/help/matlab/ref/graph.centrality.html"><span>centrality</span></a></div><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>[R, OUT, IN] = pagerank(G)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>p = 0.85;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>NMAX = 200;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>TOL = 10^-7;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if</span><span>(isempty(G))</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    error(</span><span style="color: rgb(160, 32, 240);">"La matrice di input è vuota."</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if</span><span>(~issparse(G))</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    error(</span><span style="color: rgb(160, 32, 240);">"La matrice di input non è sparsa."</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if</span><span>(~islogical(G))</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    error(</span><span style="color: rgb(160, 32, 240);">"La matrice di input non contiene solo elementi logici."</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>[n </span><span class="warning_squiggle_rte warningHighlight">m</span><span>] = size(G);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if</span><span>(n ~= m)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    error(</span><span style="color: rgb(160, 32, 240);">"La matrice di input non è quadrata."</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if</span><span>(n &lt; 2)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    error(</span><span style="color: rgb(160, 32, 240);">"Dimensioni della matrice di input non corrette."</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>G = spdiags(zeros(n,1), 0, G);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>NJ = sum(G);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>index_1 = find(NJ);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>index_2 = find(NJ == 0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>D(index_1,1) = 1./NJ(index_1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>D(index_2,1) = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>D = spdiags(D,0,n,n);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>e = ones(n,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>z(index_1,1)=(1-p)/n;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>z(index_2,1)=1/n;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>pGD = p*G*D;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>x0 = zeros(n,1)+1/n;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>R = pGD * x0 + e * (z' * x0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>niter = 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>TOLR = max(TOL*norm(R,1), realmin);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">while </span><span>( niter &lt; NMAX &amp;&amp; norm(R - x0,1) &gt;= TOLR )</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    x0 = R;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    R = pGD * x0 + e * (z' * x0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    TOLR = max(TOL*norm(R,1), realmin);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    niter = niter+1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% La catena di Markov è irriducibile e quindi sicuramente ci sarà convergenza.</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>OUT = NJ;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>IN = sum(G,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div></div><br>
+<!-- 
+##### SOURCE BEGIN #####
+function [R, OUT, IN] = pagerank(G)
+%% PAGERANK Calcolo del PageRank data una matrice di adiacenza G.
+% 
+% 
+% <internal:H_530CD292 R>| = pagerank(|<internal:4B1ACAC5 G>|);|
+% 
+% |[|<internal:H_530CD292 R>|, |<internal:H_3EB459A4 OUT>|, |<internal:H_AAC58498 
+% IN>|] = pagerank(|<internal:4B1ACAC5 G>|);|
+% 
+% 
+%% Argomenti di input
+% 
+% 
+% *G - Matrice di adiacenza*
+% 
+% |G| è la matrice sparsa di adiacenze relativa ad un sottoinsieme del web. 
+% Deve essere quadrata e di tipo sparse logical. 
+% 
+% *Tipo:|* sparse | logical|
+% 
+% ||
+%% Argomenti di output
+% 
+%% R - Vettore dei rank delle pagine
+% |R| è il vettore dei page rank associati alle pagine del sottoinsieme del 
+% web rappresentato da |G|.
+% 
+% *Tipo:|* double|
+% 
+% ||
+%% OUT - Vettore dei corrispondenti _outdegree_
+% |OUT(i)| contiene il numero di link uscenti dal nodo|(i)|, il cui pagerank 
+% è |R(i)|.
+% 
+% *Tipo:|* double|
+% 
+% 
+%% IN - Vettore dei corrispondenti _indegree_
+% |IN(i)| contiene il numero di link entranti nel nodo|(i)|, il cui pagerank 
+% è |R(i)|.
+% 
+% *Tipo:|* double|
+% 
+% ||
+%% Algoritmo
+% Utilizzando un metodo iterativo, viene calcolato il vettore R dei PageRank, 
+% ovvero dei pesi numerici associati alle pagine del sottoinsieme del web analizzato, 
+% con lo scopo di classificarle in base alla loro importanza relativa all'interno 
+% dell'insieme. L'idea di base è assegnare un rank ad ogni pagina in base ai rank 
+% delle pagine che puntano ad essa. Ogni pagina dunque distribuisce equamente 
+% la propria importanza alle pagine puntate.
+%% Correlati
+% <https://www.mathworks.com/help/matlab/ref/graph.centrality.html centrality>
+% 
+% 
+p = 0.85;
+NMAX = 200;
+TOL = 10^-7;
+if(isempty(G))
+    error("La matrice di input è vuota.");
+end
+if(~issparse(G))
+    error("La matrice di input non è sparsa.");
+end
+if(~islogical(G))
+    error("La matrice di input non contiene solo elementi logici.");
+end
+[n m] = size(G);
+if(n ~= m)
+    error("La matrice di input non è quadrata.");
+end
+if(n < 2)
+    error("Dimensioni della matrice di input non corrette.");
+end
+G = spdiags(zeros(n,1), 0, G);
+NJ = sum(G);
+index_1 = find(NJ);
+index_2 = find(NJ == 0);
+D(index_1,1) = 1./NJ(index_1);
+D(index_2,1) = 0;
+D = spdiags(D,0,n,n);
+e = ones(n,1);
+z(index_1,1)=(1-p)/n;
+z(index_2,1)=1/n;
+pGD = p*G*D;
+x0 = zeros(n,1)+1/n;
+R = pGD * x0 + e * (z' * x0);
+niter = 1;
+TOLR = max(TOL*norm(R,1), realmin);
+while ( niter < NMAX && norm(R - x0,1) >= TOLR )
+    x0 = R;
+    R = pGD * x0 + e * (z' * x0);
+    TOLR = max(TOL*norm(R,1), realmin);
+    niter = niter+1;
+end
+% La catena di Markov è irriducibile e quindi sicuramente ci sarà convergenza.
+OUT = NJ;
+IN = sum(G,2);
+end
+##### SOURCE END #####
+--></body></html>
